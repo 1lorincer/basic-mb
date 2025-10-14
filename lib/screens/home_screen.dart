@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:start_flutter_application/design/colors.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/images.dart';
+import 'package:start_flutter_application/widgets/vehicle_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(color: backgroundColor, child: const Text('body')),
+      body: Container(color: backgroundColor, child: const VehicleList()),
     );
   }
 }
