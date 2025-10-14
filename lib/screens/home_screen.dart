@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:start_flutter_application/design/colors.dart';
+import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/images.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,6 +8,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: vehicleCarImage));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: surfaceColor,
+        title: Text(
+          'Dispatcher Application',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: primaryColor,
+            fontSize: fontSize16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      body: Container(color: backgroundColor, child: const Text('body')),
+    );
   }
 }
