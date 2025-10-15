@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:start_flutter_application/design/colors.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
+import 'package:start_flutter_application/design/ui/accent_button.dart';
 import 'package:start_flutter_application/widgets/vehicle_item.dart';
 
 class VehicleList extends StatelessWidget {
@@ -29,6 +29,6 @@ class VehicleList extends StatelessWidget {
   }
 
   Widget _updatedButton() {
-    return Container();
+    return AccentButton(title: 'Update', onTap: () {});
   }
 }
