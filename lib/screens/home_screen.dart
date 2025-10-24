@@ -3,6 +3,7 @@ import 'package:start_flutter_application/design/colors.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/images.dart';
 import 'package:start_flutter_application/design/styles.dart';
+import 'package:start_flutter_application/design/ui/navbar_element.dart';
 import 'package:start_flutter_application/widgets/vehicle_list.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,13 +12,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: surfaceColor,
-        title: Text(
-          'Dispatcher Application',
-          textAlign: TextAlign.center,
-          style: primaryTextStyle,
-        ),
+      appBar: NavbarElement(
+        title: 'Dispatcher Application',
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       body: Container(color: backgroundColor, child: const VehicleList()),
     );

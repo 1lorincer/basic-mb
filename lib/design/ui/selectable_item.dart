@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:start_flutter_application/design/colors.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/images.dart';
 import 'package:start_flutter_application/design/styles.dart';
 
-class DriverItem extends StatelessWidget {
-  final String driverName;
+class SelectableItem extends StatelessWidget {
+  final SvgPicture image;
+  final double leftPadding;
+  final String title;
   final bool isSelected;
   final Function() onTap;
 
-  const DriverItem({
+  const SelectableItem({
     super.key,
     required this.onTap,
-    required this.driverName,
+    required this.title,
     required this.isSelected,
+    required this.image,
+    required this.leftPadding,
   });
 
   @override
@@ -29,14 +34,14 @@ class DriverItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius8),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.only(left: padding8, right: padding16),
+          padding: EdgeInsets.only(left: leftPadding, right: padding16),
           child: Row(
             children: <Widget>[
-              accountCircleImage,
+              image,
               const SizedBox(width: width16),
               Expanded(
                 child: Text(
-                  driverName,
+                  title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: body2TextStyle,

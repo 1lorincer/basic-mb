@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:start_flutter_application/design/colors.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
+import 'package:start_flutter_application/design/images.dart';
 import 'package:start_flutter_application/design/ui/accent_button.dart';
 import 'package:start_flutter_application/design/utils/size_utils.dart';
-import 'package:start_flutter_application/widgets/driver_item.dart';
+import 'package:start_flutter_application/design/ui/selectable_item.dart';
 
 class DriverList extends StatefulWidget {
   const DriverList({super.key});
@@ -30,8 +30,10 @@ class _DriverListState extends State<DriverList> {
       ),
       itemBuilder: (ctx, index) {
         final bool isSelected = _selectedDriverIndex == index;
-        return DriverItem(
-          driverName: 'Petya',
+        return SelectableItem(
+          title: 'Petya',
+          leftPadding: padding8,
+          image: accountCircleImage,
           isSelected: isSelected,
           onTap: () {
             setState(() {
