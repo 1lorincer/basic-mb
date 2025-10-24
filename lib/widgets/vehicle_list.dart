@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:start_flutter_application/design/dialog/error_dialog.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/ui/accent_button.dart';
+import 'package:start_flutter_application/screens/driver_screen.dart';
 import 'package:start_flutter_application/widgets/vehicle_item.dart';
+
+import '../design/utils/size_utils.dart';
 
 class VehicleList extends StatelessWidget {
   const VehicleList({super.key});
@@ -21,17 +24,19 @@ class VehicleList extends StatelessWidget {
   }
 
   Widget _list(BuildContext context) {
-    final safeBottomPadding = MediaQuery.of(context).padding.bottom;
-    final bottomPadding = (safeBottomPadding + height8) * 2 + height40;
     return ListView.separated(
       padding: EdgeInsets.only(
         left: padding16,
-        bottom: bottomPadding,
+        bottom: getListBottomPadding(context),
         right: padding16,
         top: padding16,
       ),
       itemBuilder: (BuildContext ctx, int index) {
-        return const VehicleItem();
+        return VehicleItem(
+          onTap: () async {
+            await _showDriverPage(context);
+          },
+        );
       },
       separatorBuilder: (BuildContext ctx, int index) {
         return SizedBox(height: height8);
@@ -54,6 +59,17 @@ class VehicleList extends StatelessWidget {
             _showErrorDialog(ctx);
           },
         ),
+      ),
+    );
+  }
+
+  Future<void> _showDriverPage(BuildContext ctx) async {
+    await Navigator.push(
+      ctx,
+      MaterialPageRoute(
+        builder: (ctx) {
+          return const DriverScreen();
+        },
       ),
     );
   }
