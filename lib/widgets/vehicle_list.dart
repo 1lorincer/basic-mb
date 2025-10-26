@@ -3,6 +3,7 @@ import 'package:start_flutter_application/design/dialog/error_dialog.dart';
 import 'package:start_flutter_application/design/dimensions.dart';
 import 'package:start_flutter_application/design/ui/accent_button.dart';
 import 'package:start_flutter_application/screens/driver_screen.dart';
+import 'package:start_flutter_application/screens/vehicle_state/vehicle_state_screen.dart';
 import 'package:start_flutter_application/widgets/vehicle_item.dart';
 
 import '../design/utils/size_utils.dart';
@@ -35,6 +36,9 @@ class VehicleList extends StatelessWidget {
         return VehicleItem(
           onTap: () async {
             await _showDriverPage(context);
+          },
+          onStateTap: () async {
+            await _showVehicleStatePage(context);
           },
         );
       },
@@ -83,5 +87,11 @@ class VehicleList extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future<void> _showVehicleStatePage(BuildContext context) async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return const VehicleStateScreen();
+    }));
   }
 }
